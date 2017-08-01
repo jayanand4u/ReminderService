@@ -4,16 +4,16 @@
 
 APIs exposed
 ==========
-Below are the APIs exposed by this project
-- API to add a reminder
-- API to update a reminder
-- API to get a reminder
-- API to get get reminders filtered by due date and/or status.
+Below are the APIs exposed by this project.
+- API to add a reminder.
+- API to update a reminder.
+- API to get a reminder using reminder id.
+- API to get reminders filtered by due date and/or status.
 
 
 Build Management
 -----------
-Uses gradle to build the application. Clone the project on the workspace and then run execute the following command from root directory. It clears all the temporary files, compiles and generates the war file.
+Uses gradle to build the application. Clone the project on the workspace and then execute the following command from root directory. It clears all the temporary files, compiles and generates the war file.
 
 - gradle clean war
 
@@ -33,7 +33,7 @@ Due to time constraint, did not use the API documentation tool like Swagger. Bel
 
 ```
 Http Method: POST
-http://<hostname>:<port>/v1/reminderservice/reminder (example - http://localhost:8080/v1/reminderservice/reminder)
+http://<hostname>:<port>/v1/reminderservice/reminders (example - http://localhost:8080/v1/reminderservice/reminders)
 {
   "name":"My first reminder",
   "description":"First reminder's description",
@@ -58,7 +58,7 @@ Un-successful response
 - API to update a reminder
 ```
 Http Method: PUT
-http://<hostname>:<port>/v1/reminderservice/reminder/{id}  (example - http://localhost:8080/v1/reminderservice/reminder/1)
+http://<hostname>:<port>/v1/reminderservice/reminders/{id}  (example - http://localhost:8080/v1/reminderservice/reminders/1)
 {
 	"name":"My modified first reminder",
 	"description":"First reminder's description",
@@ -85,7 +85,7 @@ Un-successful Response
 1) Retrieve all reminders (no filter)
 ```
 Http Method: GET
-https://<base url>:<port>/v1/reminderservice/reminder
+https://<base url>:<port>/v1/reminderservice/reminders
 Successful Response:
 
 [
@@ -96,7 +96,7 @@ Successful Response:
 		"links":[
 		{
 		"rel": "self",
-		"href": "http://localhost:8080/v1/reminderservice/reminder/1"
+		"href": "http://localhost:8080/v1/reminderservice/reminders/1"
 		}
 		],
 		"due_date": "2017-08-30",
@@ -109,7 +109,7 @@ Successful Response:
 		"links":[
 		{
 		"rel": "self",
-		"href": "http://localhost:8080/v1/reminderservice/reminder/2"
+		"href": "http://localhost:8080/v1/reminderservice/reminders/2"
 		}
 		],
 		"due_date": "2017-08-30",
@@ -122,7 +122,7 @@ Successful Response:
 		"links":[
 		{
 		"rel": "self",
-		"href": "http://localhost:8080/v1/reminderservice/reminder/3"
+		"href": "http://localhost:8080/v1/reminderservice/reminders/3"
 		}
 		],
 		"due_date": "2017-08-29",
@@ -135,7 +135,7 @@ Successful Response:
 		"links":[
 		{
 		"rel": "self",
-		"href": "http://localhost:8080/v1/reminderservice/reminder/4"
+		"href": "http://localhost:8080/v1/reminderservice/reminders/4"
 		}
 		],
 		"due_date": "2017-08-29",
@@ -156,7 +156,7 @@ Un-successful Response:
 2) Retrieve all reminders after applying filters
 ```
 Http Method: GET
-https://<base url>:<port>/v1/reminderservice/reminder?status={DONE/NOTDONE}&dueDate={dueDate} (example - http://localhost:8080/v1/reminderservice/reminder?status=NOTDONE&dueDate=2017-08-30)
+https://<base url>:<port>/v1/reminderservice/reminders?status={DONE/NOTDONE}&dueDate={dueDate} (example - http://localhost:8080/v1/reminderservice/reminders?status=NOTDONE&dueDate=2017-08-30)
 
 Successful Response:
 [
@@ -167,7 +167,7 @@ Successful Response:
 		"links":[
 		{
 		"rel": "self",
-		"href": "http://localhost:8080/v1/reminderservice/reminder/1"
+		"href": "http://localhost:8080/v1/reminderservice/reminders/1"
 		}
 		],
 		"due_date": "2017-08-30",
@@ -180,7 +180,7 @@ Successful Response:
 		"links":[
 		{
 		"rel": "self",
-		"href": "http://localhost:8080/v1/reminderservice/reminder/2"
+		"href": "http://localhost:8080/v1/reminderservice/reminders/2"
 		}
 		],
 		"due_date": "2017-08-30",
@@ -207,7 +207,7 @@ Un-successful Responses:
 - API to retrieve a reminder
 ```
 Http Method: GET
-https://<hostname>:<port>/v1/reminderservice/reminder/{id}
+https://<hostname>:<port>/v1/reminderservice/reminders/{id}
 
 Successful Response:
 {
